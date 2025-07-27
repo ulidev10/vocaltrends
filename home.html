@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VocalTrends</title>
+    <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-content">
+        <div class="logo">VOCALTRENDS</div>
+        
+        <div class="search-container">
+            <input type="text" placeholder="Encuentra lo que estés buscando aquí..." class="search-input">
+            <button class="search-btn">🔍</button>
+        </div>
+        
+        <nav class="nav">
+            <a href="#" class="nav-link">MUSIC GLOBAL</a>
+            <a href="#" class="nav-link">RANKING</a>
+            <a href="#" class="nav-link">PERSONAJES</a>
+            <a href="#" class="nav-link">SOPORTE</a>
+        </nav>
+        
+        <button class="login-btn">INICIAR SESIÓN</button>
+    </div>
+
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+</header>
+
+    <section class="banner">
+        <img src="img/banner.jpg" alt="Banner VocalTrends" class="banner-img">
+        <div class="overlay"></div>
+        <div class="banner-content">
+            <div class="banner-text">
+                <h1>LO ÚLTIMO EN TENDENCIA</h1>
+                <p>Infórmate de las canciones que están siendo tendencia actualmente.</p>
+            </div>
+            <img src="img/kasane teto.png" alt="Personaje altavoz" class="character-img">
+        </div>
+    </section>
+
+<section class="cards-section">
+    <div class="cards-container">
+        <a href="#tendencias" class="card">
+            <div class="card-image-wrapper">
+                <img src="img/primer cuadro.jpg" alt="Tendencias" class="card-img">
+                <span class="card-text-middle">TENDENCIAS ACTUALES</span>
+            </div>
+        </a>
+        <a href="#music-global" class="card">
+            <div class="card-image-wrapper">
+                <img src="img/segundo cuadro.jpg" alt="Music Global" class="card-img">
+                <span class="card-text-middle">MUSIC GLOBAL</span>
+            </div>
+        </a>
+        <a href="#opciones" class="card">
+            <div class="card-image-wrapper">
+                <img src="img/tercer cuadro.jpg" alt="Opciones" class="card-img">
+                <span class="card-text-middle">OPCIONES INTERESANTES</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+    <section class="about">
+        <h1 class="logo">VOCALTRENDS</h1>
+        <p class="slogan">Amantes de la música Vocaloid y sus variantes.</p>
+        <p class="description">
+            VocalTrends es una plataforma donde podés descubrir las canciones Vocaloid y UTAU más populares del momento, 
+            seguir las últimas tendencias musicales y compartir tus propias creaciones con la comunidad. 
+            Subí tus canciones, covers o temas originales usando tu vocaloid favorito y conectá con otros fans y productores. 
+            Explorá rankings semanales, creá tu perfil como artista y sé parte del mundo virtual donde la música cobra vida.
+        </p>
+        <a href="#" class="learn-more">Learn more about Vocaloid ›</a>
+    </section>
+
+<section class="trending-section">
+<h2 class="section-title">TENDENCIAS ACTUALES</h2>
+    <p class="section-description1">
+        Explora aquella música que es tendencia actualmente a través de nuestro ranking,
+        viendo la música que está de moda este mes.
+    </p>
+
+    <div class="music-carousel">
+        <audio id="audio-player" src="" preload="auto"></audio> 
+        </div>
+
+    <div class="global-player-controls">
+        <input type="range" id="song-progress" value="0" min="0" max="100">
+        <div class="controls">
+            <button onclick="seekBackward()">⏮</button>
+            <button id="playPauseBtn" onclick="playPauseSong()">⏯</button>
+            <button onclick="seekForward()">⏭</button>
+        </div>
+    </div>
+
+    <!-- MUSIC GLOBAL dentro de la misma sección -->
+    <div class="music-global-section">
+        <h2 class="section-title">MUSIC GLOBAL</h2>
+        <p class="section-description">
+            Apartado dedicado solo a las canciones que están en tendencia, genéricas o de autores que 
+            publican sus propios diseños y quieren que la comunidad de vocaloid las vea.
+        </p>
+
+        <div class="music-global-cards">
+            <div class="global-card" style="background: linear-gradient(180deg, #FFB347, #FFCC33);">
+                <img src="img/birdbrain.jpg" alt="BirdBrain">
+                <h3>BirdBrain</h3>
+                <p>Kasane Teto</p>
+                <div class="player-controls">
+                    <div class="controls">
+                        <button>⏮</button>
+                        <button>⏯</button>
+                        <button>⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="global-card" style="background: linear-gradient(180deg, #FF5F6D, #FFC371);">
+                <img src="img/dont-believe.jpg" alt="Don't Believe in T.">
+                <h3>Don't Believe in T.</h3>
+                <p>Hatsune Miku & Kasane Teto</p>
+                <div class="player-controls">
+                    <div class="controls">
+                        <button>⏮</button>
+                        <button>⏯</button>
+                        <button>⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="global-card" style="background: linear-gradient(180deg, #F857A6, #FF5858);">
+                <img src="img/ciencia.jpg" alt="Ciencia">
+                <h3>Ciencia</h3>
+                <p>Kasane Teto</p>
+                <div class="player-controls">
+                    <div class="controls">
+                        <button>⏮</button>
+                        <button>⏯</button>
+                        <button>⏭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="ver-mas-btn">VER MÁS</button>
+    </div>
+</section>
+
+<section class="interesting-options">
+    <h2 class="section-title">OPCIONES INTERESANTES</h2>
+
+    <div class="options-content">
+        <div class="text-content">
+            <p>
+                Además de un ranking con las mejores canciones, puedes visitar los autores que publican sus proyectos musicales
+                dentro de nuestra comunidad.
+            </p>
+            <p>
+                También, existe un apartado donde cada usuario puede subir sus avatares en modelo 3D o bocetos que ellos mismos
+                dibujen. Pudiendo ser calificados por la comunidad y recibir créditos por ello.
+            </p>
+            <p>
+                Ten en cuenta que VOCALTRENDS siempre estará al cuidado y colaboración de todos ustedes. Poder compartir
+                sus gustos musicales dentro de esta comunidad es lo más importante para nosotros.
+            </p>
+
+            <a href="#" class="learn-more">Learn more about VOCALTRENDS ></a>
+        </div>
+
+        <div class="image-gallery">
+            <img src="imagy-splitted-images/image1x1.jpg" alt="opción 1">
+            <img src="imagy-splitted-images/image2x1.jpg" alt="opción 2">
+            <img src="imagy-splitted-images/image3x1.jpg" alt="opción 3">
+        </div>
+    </div>
+</section>
+
+<header class="main-header">
+        <div class="header-social">
+            <a href="#" class="top-icon facebook"></a>
+            <a href="#" class="top-icon instagram"></a>
+            <a href="#" class="top-icon twitter"></a>
+            <a href="#" class="top-icon soundcloud"></a>
+            <a href="#" class="top-icon youtube"></a>
+        </div>
+        </header>
+
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-logo">
+                <img src="img/LOGO VOCALTRENDS.png" alt="VocalTrends Logo">
+            </div>
+            <div class="about-text">
+                <p>
+                    La música tiene el poder de conectar personas y expresar emociones únicas. 
+                    En <span class="highlight">VocalTrends</span>, creemos en apoyar la creatividad y la pasión de todos los productores, cantantes virtuales y fans que usan su talento para dar vida a nuevas historias musicales.
+                </p>
+                <p>
+                    Nuestro objetivo es ser un espacio donde cada creador pueda mostrar su individualidad y compartir su amor por las voces virtuales, desde Vocaloid hasta UTAU y otros sintetizadores de voz.
+                </p>
+                <p>
+                    Además de descubrir las tendencias actuales, invitamos a los usuarios a subir sus propias canciones, colaborar con otros artistas y explorar nuevas herramientas de producción, fomentando una comunidad donde la innovación y la música se encuentren.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-branding">
+                <p class="footer-title">VOCALTRENDS</p>
+                <p class="footer-subtitle">MIX VOCALOID'S</p>
+            </div>
+    
+            <nav class="footer-nav">
+                <a href="#">MUSIC GLOBAL</a>
+                <a href="#">RANKING</a>
+                <a href="#">PERSONAJES</a>
+                <a href="#">SOPORTE</a>
+            </nav>
+    
+            <div class="footer-right-section">
+                <div class="footer-social-bottom">
+                    <a href="#" class="bottom-icon facebook"></a>
+                    <a href="#" class="bottom-icon instagram"></a>
+                    <a href="#" class="bottom-icon twitter"></a>
+                    <a href="#" class="bottom-icon soundcloud"></a>
+                    <a href="#" class="bottom-icon youtube"></a>
+                </div>
+                <div class="language-selector">
+                    <a href="#" class="lang-active">ES</a> | <a href="#">JA</a> | <a href="#">EN</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-middle">
+            <div class="footer-col-left">
+                <p>
+                    Todos los proyectos enviados a esta página son responsabilidad de sus autores. El uso, reproducción o distribución de obras ya patentadas por artistas o empresas reconocidas, no está ni estará permitido. Cualquier contenido original y queda estrictamente prohibido lucrar con contenido que no te pertenece.
+                </p>
+                <p>
+                    Los usuarios pueden registrar y patentar sus propios proyectos dentro de la plataforma. Aun así, el contenido subido será de libre acceso para escuchar, compartir y promover dentro de la comunidad, sin fines comerciales, a menos que el autor indique lo contrario.
+                </p>
+                <p>
+                    Todos los nombres de productos, software o personajes mencionados en esta web son marcas comerciales o marcas registradas de sus respectivos titulares.
+                </p>
+            </div>
+            <div class="footer-col-right">
+                <img src="img/LOGO VOCALTRENDS.png" alt="VocalTrends Logo" class="footer-bottom-logo">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links-bottom">
+                <a href="#">Política de Privacidad</a> | 
+                <a href="#">Términos de Uso</a> | 
+                <a href="#">Créditos de Creación de Contenido</a>
+            </div>
+            <p class="footer-copy">
+                Copyright © [VOCALTRENDS] - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+<script src="js.js"></script>
+</body>
+</html>

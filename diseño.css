@@ -1,0 +1,1536 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #333;
+}
+
+/* === GENERAL HEADER STYLES === */
+.header {
+    background-color: #000000; /* Fondo negro sólido */
+    color: #fff;
+    padding: 15px 40px; /* Un poco más de padding para dar espacio */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra más sutil y elegante */
+    /* Eliminamos: position: sticky; top: 0; */
+    z-index: 1000; /* Se mantiene por encima de otros elementos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Una fuente más moderna y limpia */
+    display: flex;
+    justify-content: center; /* Centra el contenido */
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Ajustado el ancho máximo para la consistencia */
+    gap: 25px; /* Espacio entre los elementos principales */
+}
+
+/* === LOGO === */
+.logo {
+    font-size: 26px; /* Tamaño del logo un poco más pequeño, pero visible */
+    font-weight: 800; /* Muy audaz */
+    letter-spacing: 1.2px; /* Más espacio entre letras */
+    text-transform: uppercase;
+    color: #ffffff; /* Color turquesa/cian para el logo, que resalta en negro */
+    text-shadow: 0 0 10px rgb(255, 255, 255); /* Un brillo más pronunciado del color del logo */
+    white-space: nowrap;
+}
+
+/* === SEARCH CONTAINER === */
+.search-container {
+    flex-grow: 1;
+    max-width: 380px; /* Ancho de la barra de búsqueda ligeramente más pequeño */
+    display: flex;
+    border-radius: 20px; /* Bordes ligeramente menos redondeados, más equilibrados */
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo muy sutilmente transparente para integrar con el negro */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil para definirla */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra discreta */
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 15px; /* Padding interior */
+    border: none;
+    background-color: transparent; /* Fondo transparente */
+    color: #e0e0e0; /* Color de texto claro */
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #aaa; /* Color del placeholder */
+}
+
+.search-input:focus {
+    background-color: rgba(255, 255, 255, 0.05); /* Ligeramente más visible al enfocar */
+    border-color: #00eaff; /* Borde del color de acento al enfocar */
+}
+
+.search-btn {
+    background-color: #1a1a1a; /* Un negro ligeramente más claro para el botón de búsqueda */
+    color: #00eaff; /* Icono del color de acento */
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #0a0a0a; /* Más oscuro al pasar el ratón */
+    color: #fff; /* Blanco al pasar el ratón */
+}
+
+/* === NAVIGATION === */
+.nav {
+    display: flex;
+    gap: 30px; /* Más espacio entre los enlaces para mayor claridad */
+}
+
+.nav-link {
+    color: #e0e0e0; /* Color blanco/gris claro para los enlaces */
+    text-decoration: none;
+    font-size: 15px; /* Tamaño de fuente ligeramente más grande */
+    font-weight: 500; /* Seminegrita */
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Línea un poco más abajo */
+    width: 100%;
+    height: 2px;
+    background-color: #00eaff; /* Color de acento */
+    transform: scaleX(0); /* Oculta la línea por defecto */
+    transform-origin: bottom right; /* Origen de la transformación */
+    transition: transform 0.3s ease-out; /* Animación de expansión */
+}
+
+.nav-link:hover {
+    color: #00eaff; /* Color de acento al pasar el ratón */
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1); /* La línea se expande desde la derecha */
+    transform-origin: bottom left;
+}
+
+/* === LOGIN BUTTON === */
+.login-btn {
+    background-color: #007bff; /* Un azul sólido para el botón */
+    color: #fff;
+    border: none;
+    padding: 10px 22px; /* Un poco más de padding */
+    border-radius: 20px; /* Bordes redondeados */
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4); /* Sombra azulada sutil */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+.login-btn:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+    transform: translateY(-1px); /* Ligero efecto de levitación */
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6); /* Sombra más pronunciada */
+}
+
+/* === MENU TOGGLE (para responsividad) === */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 1024px) {
+    .header {
+        padding: 12px 30px;
+    }
+    .header-content {
+        gap: 20px;
+    }
+    .logo {
+        font-size: 24px;
+    }
+    .nav {
+        gap: 20px;
+    }
+    .nav-link {
+        font-size: 14px;
+    }
+    .search-input {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+    .search-btn {
+        padding: 9px 12px;
+        font-size: 16px;
+    }
+    .login-btn {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+    .header-content {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        justify-content: center; /* Centra los elementos */
+        gap: 10px;
+    }
+
+    .logo {
+        width: 100%; /* Ocupa todo el ancho */
+        text-align: center; /* Centra el logo */
+        margin-bottom: 10px;
+        font-size: 26px;
+    }
+
+    .search-container {
+        width: 100%; /* Ocupa todo el ancho */
+        max-width: 500px; /* Limita para pantallas más grandes */
+        order: 3; /* Mueve la barra de búsqueda abajo */
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        order: 2; /* Mueve la navegación arriba de la búsqueda */
+        width: 100%; /* Ocupa todo el ancho */
+        justify-content: center; /* Centra los enlaces */
+        margin-bottom: 10px;
+        gap: 10px; /* Menos espacio entre enlaces */
+        flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 5px 8px; /* Más padding para los enlaces si se envuelven */
+    }
+
+    .login-btn {
+        order: 4; /* Mueve el botón de login al final */
+        width: 100%;
+        max-width: 250px;
+        margin-top: 10px;
+    }
+
+    /* Ocultar elementos para el menú hamburguesa (si lo implementas) */
+    /* .nav, .search-container, .login-btn {
+        display: none;
+    }
+    .menu-toggle {
+        display: block; // Mostrar el botón de hamburguesa
+    } */
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+    .logo {
+        font-size: 22px;
+    }
+    .search-input {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    .search-btn {
+        padding: 8px 10px;
+        font-size: 15px;
+    }
+    .nav-link {
+        font-size: 13px;
+        padding: 3px 5px;
+    }
+    .login-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+/*banner*/
+
+.banner {
+    position: relative;
+    text-align: center;
+}
+
+.banner-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.banner-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.banner-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.banner-text h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.banner-text p {
+    font-size: 18px;
+}
+
+.character-img {
+    position: absolute;
+    bottom: -100px;
+    left: 5%;
+    height: 600px;
+}
+
+/* === NUEVA SECCIÓN: OPCIONES INTERESANTES (Texto y imagen grande) === */
+.options-section {
+    padding: 80px 20px; /* Un buen padding para la sección */
+    background-color: #fff; /* Fondo blanco como en la imagen */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centramos el título */
+}
+
+.options-content {
+    max-width: 1200px; /* Ancho máximo similar a otras secciones */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre las columnas */
+    align-items: center; /* Centra verticalmente las columnas */
+    gap: 60px; /* Espacio entre el texto y la imagen */
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.options-text-col {
+    flex: 2; /* Ocupa más espacio que la columna de la imagen */
+    max-width: 600px; /* Limita el ancho del texto */
+    text-align: left;
+}
+
+.options-title {
+    font-size: 48px; /* Agrandamos el título */
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-weight: bold;
+    width: 100%; /* Asegura que ocupe todo el ancho para centrarse */
+}
+
+.options-text-col p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #424141;
+    margin-bottom: 1.2em;
+}
+
+.options-learn-more {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff; /* Un color azul para el enlace */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.options-learn-more:hover {
+    color: #0056b3;
+}
+
+.options-image-col {
+    flex: 1; /* Ocupa menos espacio */
+    display: flex; /* Para centrar la imagen */
+    justify-content: center;
+    align-items: center;
+    min-width: 300px; /* Ancho mínimo para la imagen */
+}
+
+.options-main-img {
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* === SECCIÓN DE TARJETAS (OPCIONES INTERESANTES) === */
+.cards-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.292);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    text-align: center; /* Centra el texto */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 100%; /* La imagen ocupa todo el espacio ahora */
+    overflow: hidden;
+    border-radius: 12px; /* Bordes redondeados en todo el contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para posicionar el texto absolutamente dentro */
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.5); /* Disminuimos el brillo de la imagen */
+    border-radius: 12px; /* Bordes redondeados de la imagen */
+}
+
+.card-text-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px; /* Tamaño del texto en el centro */
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para mejor legibilidad */
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1; /* Asegura que el texto esté sobre la imagen */
+}
+
+/* === Media Queries para Responsividad de las tarjetas === */
+@media (max-width: 768px) {
+    .cards-section {
+        padding: 40px 15px;
+    }
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    .card {
+        width: 80%;
+        max-width: 300px;
+        height: 280px;
+    }
+    .card-text-middle {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-section {
+        padding: 30px 10px;
+    }
+    .card {
+        width: 90%;
+        height: 250px;
+    }
+    .card-text-middle {
+        font-size: 13px;
+        padding: 6px;
+    }
+}
+
+/*Texto vocaltrends*/
+
+.about {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.about .logo {
+    font-size: 42px;
+    font-weight: bold;
+    background: linear-gradient(to right, #2CC9BC, #053a8a, #50648C, #2F3B55);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    margin-bottom: 5px;
+}
+
+.about .slogan {
+    font-size: 14px;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.about .description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.about .learn-more {
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.about .learn-more:hover {
+    color: #2CAFA5;
+}
+
+/* ==== SECCIÓN COMPLETA ==== */
+.trending-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    padding: 200px 20px 120px; /* margen para que se vea el SVG completo */
+}
+
+.background-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+/* ==== TÍTULOS Y DESCRIPCIÓN ==== */
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.section-description {
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* === TENDENCIAS ACTUALES (Fondo, título, descripción - se mantiene igual o similar) === */
+.trending-section {
+    background: url("img/banner_Capa 1_copy_2.png") no-repeat center top;
+    background-size: cover;
+    padding: 250px; /* Ajustado el padding para el nuevo diseño */
+    text-align: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden; /* Muy importante para que las tarjetas salgan y entren limpiamente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 600px; /* Altura mínima para que se vea el carrusel */
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+}
+
+.section-description1 {
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+/* === CARRUSEL DE MÚSICA === */
+.music-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Ancho máximo del carrusel */
+    height: 400px; /* Altura para contener las tarjetas */
+    margin: 40px auto 20px; /* Espacio arriba y abajo */
+    perspective: 1000px; /* Perspectiva para el efecto 3D */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.music-card-item {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    cursor: pointer;
+    /* La transición es CLAVE para la animación de rotación y movimiento */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), /* Animación más compleja y suave */
+                opacity 0.6s ease,
+                box-shadow 0.6s ease,
+                z-index 0.0s linear 0.3s; /* Para cambiar z-index después de que empiece la transformación */
+    will-change: transform, opacity; /* Optimización para animaciones */
+}
+
+.music-card-item .card-img-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: block;
+    filter: brightness(0.8); /* Ligeramente oscurecida por defecto */
+    transition: filter 0.6s ease;
+}
+
+.music-card-item .song-info {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.music-card-item .song-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.music-card-item .song-artist {
+    font-size: 15px;
+    color: #dcdcdc;
+}
+
+/* Estado de la tarjeta central (activa) */
+.music-card-item.active {
+    width: 300px; /* Tamaño de la tarjeta activa */
+    height: 380px;
+    transform: translateX(0) scale(1) rotateY(0deg) translateZ(0); /* Posición central, sin rotación */
+    opacity: 1;
+    z-index: 10; /* Siempre al frente */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); /* Sombra más fuerte */
+    cursor: default; /* No es clicable para moverse a sí misma */
+    pointer-events: none; /* Deshabilita clics para evitar interacción no deseada */
+}
+
+.music-card-item.active .card-img-cover {
+    filter: brightness(1); /* Imagen sin oscurecer en la tarjeta activa */
+}
+
+/* Estados de las tarjetas laterales (inactivas/en el fondo) */
+/* Posición y estilo para tarjetas a la izquierda */
+.music-card-item.prev-1 { /* Una antes de la actual */
+    width: 200px;
+    height: 250px;
+    transform: translateX(-280px) scale(0.7) rotateY(20deg) translateZ(-100px); /* Rotación y desplazamiento */
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.music-card-item.prev-2 { /* Dos antes de la actual (más oculta) */
+    width: 150px;
+    height: 190px;
+    transform: translateX(-400px) scale(0.5) rotateY(30deg) translateZ(-200px); /* Más rotación y desplazamiento */
+    opacity: 0.3;
+    z-index: 4;
+}
+
+/* Posición y estilo para tarjetas a la derecha */
+.music-card-item.next-1 { /* Una después de la actual */
+    width: 200px;
+    height: 250px;
+    transform: translateX(280px) scale(0.7) rotateY(-20deg) translateZ(-100px); /* Rotación y desplazamiento */
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.music-card-item.next-2 { /* Dos después de la actual (más oculta) */
+    width: 150px;
+    height: 190px;
+    transform: translateX(400px) scale(0.5) rotateY(-30deg) translateZ(-200px); /* Más rotación y desplazamiento */
+    opacity: 0.3;
+    z-index: 4;
+}
+
+/* === NUEVA CLASE: Tarjetas que están fuera de la ventana de vista del carrusel === */
+.music-card-item.hidden {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics en estas tarjetas */
+    /* Mueve la tarjeta muy lejos para que no se vea y mantén una rotación para el efecto "desaparecer" */
+    transform: translateX(0) scale(0.1) rotateY(60deg) translateZ(-500px);
+    /* Asegúrate de que esta transición también use el mismo tiempo para ser suave */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease;
+    z-index: 1; /* Mantenlas por debajo */
+}
+
+
+/* === CONTROLES DE REPRODUCCIÓN GLOBALES === */
+.global-player-controls {
+    width: 100%;
+    max-width: 400px; /* Ancho limitado para los controles */
+    margin: 20px auto 0;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2; /* Para que esté por encima del carrusel si hay solapamiento */
+}
+
+#song-progress {
+    width: 90%;
+    height: 6px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+#song-progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00eaff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+#song-progress::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00eaff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Más espacio entre los botones */
+    align-items: center;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 28px; /* Botones más grandes */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.controls button:hover {
+    color: #00eaff;
+    transform: scale(1.15); /* Más pronunciado */
+}
+
+/* === Ocultar reproductor de YouTube invisible === */
+#youtube-audio-player {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* === Media Queries para Responsividad === */
+@media (max-width: 1024px) {
+    .music-carousel {
+        height: 350px;
+        max-width: 700px;
+    }
+    .music-card-item.active {
+        width: 250px;
+        height: 320px;
+        padding: 15px;
+    }
+    .music-card-item.prev-1 { transform: translateX(-220px) scale(0.6) rotateY(20deg) translateZ(-80px); }
+    .music-card-item.prev-2 { transform: translateX(-320px) scale(0.4) rotateY(30deg) translateZ(-150px); }
+    .music-card-item.next-1 { transform: translateX(220px) scale(0.6) rotateY(-20deg) translateZ(-80px); }
+    .music-card-item.next-2 { transform: translateX(320px) scale(0.4) rotateY(-30deg) translateZ(-150px); }
+    .music-card-item .song-title { font-size: 18px; }
+    .music-card-item .song-artist { font-size: 14px; }
+    .global-player-controls { max-width: 350px; }
+    .controls button { font-size: 26px; }
+}
+
+@media (max-width: 768px) {
+    .trending-section {
+        padding: 120px 15px 60px;
+        min-height: 500px;
+    }
+    .section-title { font-size: 30px; }
+    .section-description1 { font-size: 13px; }
+    .music-carousel {
+        height: 300px;
+        max-width: 500px;
+    }
+    .music-card-item.active {
+        width: 200px;
+        height: 280px;
+        padding: 12px;
+    }
+    .music-card-item.prev-1 { transform: translateX(-180px) scale(0.55) rotateY(20deg) translateZ(-70px); }
+    .music-card-item.prev-2, .music-card-item.next-2 { display: none; } /* Ocultar las tarjetas más lejanas en móviles */
+    .music-card-item.next-1 { transform: translateX(180px) scale(0.55) rotateY(-20deg) translateZ(-70px); }
+    .music-card-item .card-img-cover { margin-bottom: 10px; }
+    .music-card-item .song-title { font-size: 16px; }
+    .music-card-item .song-artist { font-size: 13px; }
+    .global-player-controls { max-width: 300px; padding: 10px 15px; }
+    .controls button { font-size: 24px; gap: 20px; }
+    #song-progress { height: 4px; }
+}
+
+@media (max-width: 480px) {
+    .trending-section {
+        padding: 100px 10px 40px;
+        min-height: 450px;
+    }
+    .section-title { font-size: 26px; }
+    .section-description1 { font-size: 12px; }
+    .music-carousel {
+        height: 250px;
+        max-width: 350px;
+        margin-bottom: 10px;
+    }
+    .music-card-item.active {
+        width: 180px;
+        height: 240px;
+        padding: 10px;
+    }
+    .music-card-item.prev-1 { transform: translateX(-140px) scale(0.5) rotateY(20deg) translateZ(-60px); }
+    .music-card-item.next-1 { transform: translateX(140px) scale(0.5) rotateY(-20deg) translateZ(-60px); }
+    .music-card-item .song-title { font-size: 14px; }
+    .music-card-item .song-artist { font-size: 12px; }
+    .global-player-controls { max-width: 280px; padding: 8px 10px; }
+    .controls { gap: 15px; }
+    .controls button { font-size: 20px; }
+}
+/* === Animación de Rotación al Cambiar (en .music-card-item) === */
+.music-card-item {
+    /* ... otras propiedades ... */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), /* Mismo cubic-bezier que antes */
+                opacity 0.6s ease,
+                box-shadow 0.6s ease,
+                z-index 0.0s linear 0.3s; /* Para cambiar z-index después de que empiece la transformación */
+    will-change: transform, opacity; /* Optimización */
+}
+
+/* NUEVA CLASE: Para una rotación temporal y explícita al salir */
+.music-card-item.rotating-out-temporary {
+    transform: rotateY(180deg) scale(0); /* Gira y encoge la tarjeta rápidamente */
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Animación rápida para el spin out */
+}
+
+/* === NUEVA CLASE: Tarjetas que están fuera de la ventana de vista del carrusel === */
+.music-card-item.hidden {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics en estas tarjetas */
+    /* Mueve la tarjeta muy lejos para que no se vea y mantén una rotación para el efecto "desaparecer" */
+    transform: translateX(0) scale(0.1) rotateY(60deg) translateZ(-500px);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.6s ease;
+    z-index: 1; /* Mantenlas por debajo */
+}
+
+/* === Ocultar reproductor de Audio local (similar a cómo ocultábamos el de YouTube) === */
+#audio-player { /* CAMBIO AQUÍ: selector de ID a #audio-player */
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* MUSIC GLOBAL */
+.music-global-section {
+    margin-top: 700px; /* 🔥 Puedes seguir ajustando según necesites */
+    color: #000;
+    text-align: center;
+}
+
+.music-global-cards {
+    display: flex;
+    justify-content: center;
+    gap: 35px; /* 🔥 Un poco más de espacio entre tarjetas */
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.global-card {
+    width: 270px; /* 🔥 Antes 220px (aumento ~23%) */
+    border-radius: 14px; /* 🔥 Más redondeado */
+    padding: 20px; /* 🔥 Antes 15px */
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); /* 🔥 Un poco más de sombra */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.global-card img {
+    width: 100%;
+    border-radius: 10px; /* 🔥 Antes 8px */
+    margin-bottom: 12px;
+}
+
+.global-card h3 {
+    font-size: 18px; /* 🔥 Antes 16px */
+    font-weight: bold;
+}
+
+.global-card p {
+    font-size: 14px; /* 🔥 Antes 12px */
+    color: #f5f5f5;
+    margin-bottom: 12px;
+}
+
+.global-card:hover {
+    transform: translateY(-7px); /* 🔥 Un poquito más de efecto */
+}
+
+.ver-mas-btn {
+    margin-top: 35px;
+    background: #5C6BC0;
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* 🔥 Botón un poco más grande */
+    border-radius: 22px;
+    font-size: 15px; /* 🔥 Antes 14px */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.ver-mas-btn:hover {
+    background: #3949AB;
+}
+
+/* Opciones interesantes */
+
+.interesting-options {
+    margin-top: 150px; /* 🔥 Distancia de la sección anterior */
+    padding: 80px 50px;
+    background: #fff;
+    font-family: Arial, sans-serif;
+    color: #333;
+    text-align: center;
+}
+
+.interesting-options .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.options-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.text-content {
+    max-width: 450px;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.text-content p {
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.learn-more:hover {
+    color: #5C6BC0;
+}
+
+/* Galería de imágenes */
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.image-gallery img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:nth-child(2) {
+    transform: translateY(30px); /* 🔥 Efecto desordenado */
+}
+
+.image-gallery img:nth-child(3) {
+    transform: translateY(60px);
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* === HEADER PRINCIPAL (Para las redes sociales arriba) === */
+.main-header {
+    background-color: #ffffff; /* Fondo negro para el header */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end; /* Alinea las redes sociales a la derecha */
+    align-items: center;
+}
+
+.header-social {
+    display: flex;
+    gap: 15px; /* Espacio entre los iconos */
+}
+
+/* Iconos para el header (usando el mismo sprite) */
+.top-icon {
+    display: inline-block;
+    width: 30px; /* Tamaño más pequeño para los iconos superiores */
+    height: 30px;
+    background: url("img/REDES SOCIALES.png") no-repeat;
+    background-size: 180px auto; /* Ajusta según el nuevo tamaño de los iconos (30px * 5 iconos = 150px, pero ajusta si tu sprite tiene márgenes) */
+    filter: brightness(0) invert(1); /* Blanco */
+    transition: transform 0.3s ease;
+}
+
+.top-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(0) invert(0.7); /* Color al pasar el ratón */
+}
+
+/* Posiciones para los iconos superiores (ajusta si el tamaño de los iconos o el sprite cambian) */
+.top-icon.facebook    { background-position: 0 0; }
+.top-icon.instagram   { background-position: -36px 0; } /* 30px (ancho icono) + 6px (margen estimado) = 36px */
+.top-icon.twitter     { background-position: -72px 0; }
+.top-icon.soundcloud  { background-position: -108px 0; }
+.top-icon.youtube     { background-position: -144px 0; }
+
+
+/* === SECCIÓN SOBRE VOCALTRENDS (Ajustada para parecerse a la imagen) === */
+.about-section {
+    background: url("img/fondo vocaltrends.png") no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    padding: 100px 20px; /* Mucho más padding para "alejarla" del top y bottom visualmente */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Que ocupe una gran parte de la altura visible */
+    position: relative;
+    overflow: hidden; /* Asegura que el contenido no se desborde */
+}
+
+/* Overlay semitransparente sobre el fondo, como en la imagen */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Capa semitransparente oscura */
+    z-index: 1;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinea verticalmente los items */
+    gap: 80px; /* Mucho espacio entre el logo y el texto */
+    padding: 20px;
+    position: relative;
+    z-index: 2; /* Por encima del overlay */
+    flex-wrap: wrap; /* Para responsividad */
+    justify-content: center; /* Centra los elementos si se envuelven */
+}
+
+.about-logo {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.about-logo img {
+    width: 280px; /* Logo más grande como en la imagen */
+    max-width: 100%;
+    height: auto;
+}
+
+.about-text {
+    background: rgba(0, 0, 0, 0.65); /* Un poco más opaco */
+    padding: 35px; /* Más padding para el texto */
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 650px; /* Ancho más específico para el texto */
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra sutil para darle profundidad */
+}
+
+.about-text p {
+    margin-bottom: 1.2em; /* Espacio entre párrafos */
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+.about-text .highlight {
+    color: #00eaff;
+    font-weight: bold;
+}
+
+/* === FOOTER (Rehecho según la imagen) === */
+.footer {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    padding: 40px 20px; /* Padding general del footer */
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between; /* Distribuye espacio entre branding, nav y derecha */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 40px auto; /* Centrado y margen inferior */
+    flex-wrap: wrap; /* Para responsividad */
+    gap: 20px; /* Espacio entre los bloques principales */
+}
+
+.footer-branding {
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.footer-title {
+    font-size: 28px; /* Tamaño grande para "VOCALTRENDS" */
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+}
+
+.footer-subtitle {
+    font-size: 16px; /* Tamaño para "MIX VOCALOID'S" */
+    margin: 0;
+    color: #bbb;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 30px; /* Espacio entre los enlaces de navegación */
+    flex-wrap: wrap;
+    justify-content: center; /* Centra los enlaces si se envuelven */
+    flex-grow: 1; /* Permite que la navegación ocupe espacio */
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #5C6BC0;
+}
+
+.footer-right-section {
+    display: flex;
+    flex-direction: column; /* Apila social y lenguaje */
+    align-items: flex-end; /* Alinea a la derecha */
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.footer-social-bottom {
+    display: flex;
+    gap: 10px; /* Espacio entre los iconos */
+}
+
+/* Iconos para el footer (usando el mismo sprite, pero con otra clase para diferenciar) */
+.bottom-icon {
+    display: inline-block;
+    width: 35px; /* Tamaño para los iconos del footer */
+    height: 35px;
+    background: url("img/REDES SOCIALES.png") no-repeat;
+    background-size: 210px auto; /* Ajusta según el tamaño (35px * 5 iconos = 175px, ajusta si tu sprite tiene márgenes) */
+    filter: brightness(0) invert(1); /* Blanco */
+    transition: transform 0.3s ease;
+}
+
+.bottom-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(0) invert(0.7);
+}
+
+/* Posiciones para los iconos del footer (ajusta si el tamaño de los iconos o el sprite cambian) */
+.bottom-icon.facebook    { background-position: 0 0; }
+.bottom-icon.instagram   { background-position: -42px 0; } /* 35px (ancho icono) + 7px (margen estimado) = 42px */
+.bottom-icon.twitter     { background-position: -84px 0; }
+.bottom-icon.soundcloud  { background-position: -126px 0; }
+.bottom-icon.youtube     { background-position: -168px 0; }
+
+.language-selector {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.language-selector a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.language-selector a:hover {
+    color: #fff;
+}
+
+.language-selector .lang-active {
+    color: #fff; /* El idioma activo en blanco */
+    font-weight: bold;
+}
+
+.footer-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea las columnas arriba */
+    max-width: 1200px;
+    margin: 0 auto 40px auto; /* Centrado y margen inferior */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria */
+    padding-top: 30px; /* Espacio después de la línea */
+    flex-wrap: wrap; /* Para responsividad */
+    gap: 30px; /* Espacio entre las columnas */
+}
+
+.footer-col-left {
+    flex: 2; /* Ocupa más espacio */
+    max-width: 700px; /* Limita su ancho */
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.footer-col-left p {
+    margin-bottom: 1em; /* Espacio entre párrafos */
+}
+
+.footer-col-left p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-col-right {
+    flex: 1; /* Ocupa menos espacio */
+    display: flex;
+    justify-content: flex-end; /* Alinea el logo a la derecha */
+    align-items: center;
+    min-width: 200px; /* Asegura un ancho mínimo para el logo */
+}
+
+.footer-bottom-logo {
+    width: 180px; /* Tamaño del logo de VocalTrends en el footer */
+    height: auto;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Segunda línea divisoria */
+    padding-top: 20px;
+    flex-wrap: wrap; /* Para responsividad */
+    gap: 15px;
+}
+
+.footer-links-bottom a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0 5px; /* Pequeño margen entre los enlaces */
+    transition: color 0.3s ease;
+}
+
+.footer-links-bottom a:hover {
+    color: #fff;
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0;
+}
+
+/* === Media Queries para Responsividad === */
+@media (max-width: 1024px) {
+    .about-content {
+        gap: 40px;
+    }
+
+    .about-logo img {
+        width: 220px;
+    }
+
+    .about-text {
+        padding: 25px;
+    }
+
+    .footer-top, .footer-middle, .footer-bottom {
+        max-width: 960px; /* Reducimos el ancho máximo para tablets */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .footer-nav {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header */
+    .main-header {
+        justify-content: center; /* Centramos los iconos en móvil */
+        padding: 15px 10px;
+    }
+    .header-social {
+        gap: 10px;
+    }
+    .top-icon {
+        width: 25px;
+        height: 25px;
+        background-size: 150px auto; /* Ajusta según el nuevo tamaño */
+    }
+    .top-icon.instagram   { background-position: -30px 0; } /* 25px + 5px */
+    .top-icon.twitter     { background-position: -60px 0; }
+    .top-icon.soundcloud  { background-position: -90px 0; }
+    .top-icon.youtube     { background-position: -120px 0; }
+
+    /* About Section */
+    .about-section {
+        padding: 60px 15px;
+        min-height: unset; /* Deja que la altura se ajuste al contenido */
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding: 0; /* Quitamos padding interno si se hace más pequeño */
+    }
+
+    .about-logo img {
+        width: 180px;
+    }
+
+    .about-text {
+        font-size: 15px;
+        padding: 20px;
+        max-width: 90%; /* Ocupa más ancho en móvil */
+    }
+
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        gap: 30px;
+    }
+
+    .footer-branding {
+        text-align: center;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .footer-right-section {
+        align-items: center; /* Centramos en móvil */
+    }
+
+    .footer-middle {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .footer-col-left {
+        max-width: 90%;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .footer-col-right {
+        justify-content: center; /* Centra el logo de la derecha */
+    }
+
+    .footer-bottom-logo {
+        width: 150px; /* Logo más pequeño en móvil */
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 15px;
+    }
+
+    .footer-links-bottom {
+        text-align: center;
+    }
+    .footer-links-bottom a {
+        display: block; /* Cada enlace en su propia línea */
+        margin: 5px 0;
+    }
+
+    .footer-copy {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        padding: 40px 10px;
+    }
+    .about-logo img {
+        width: 150px;
+    }
+    .about-text {
+        font-size: 14px;
+        padding: 15px;
+    }
+    .footer-title {
+        font-size: 24px;
+    }
+    .footer-subtitle {
+        font-size: 14px;
+    }
+    .footer-nav a {
+        font-size: 14px;
+    }
+    .bottom-icon {
+        width: 30px;
+        height: 30px;
+        background-size: 180px auto; /* Ajusta según el nuevo tamaño */
+    }
+    .bottom-icon.instagram   { background-position: -36px 0; }
+    .bottom-icon.twitter     { background-position: -72px 0; }
+    .bottom-icon.soundcloud  { background-position: -108px 0; }
+    .bottom-icon.youtube     { background-position: -144px 0; }
+}
